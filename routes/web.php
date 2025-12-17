@@ -20,8 +20,10 @@ Route::delete('/avis/{avis}', [AvisController::class, 'destroy'])->name('avis.de
 // Liste des articles
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
 
-Route::post('/articles/{article}/like', [LikeController::class, 'store'])
+Route::post('/articles/{article}/like', [LikeController::class, 'like'])
     ->name('articles.like');
+Route::post('/articles/{article}/dislike', [LikeController::class, 'dislike'])
+    ->name('articles.dislike');
 
 Route::patch('/articles/{article}/toggle', [ArticleController::class, 'toggle'])
     ->middleware('auth')
