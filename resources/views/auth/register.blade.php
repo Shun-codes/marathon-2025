@@ -1,14 +1,15 @@
-@extends("components.layout.app")
-
-@section('contenu')
-    <form action="{{route("register")}}" method="post">
+<x-layout.app title="Inscription">
+    <form action="{{ route('register') }}" method="post">
         @csrf
-        <input type="text" name="name" required placeholder="Name"/><br/>
+        <input type="text" name="name" required placeholder="Nom"/><br/>
         <input type="email" name="email" required placeholder="Email"/><br/>
-        <input type="password" name="password" required placeholder="password"/><br/>
-        <input type="password" name="password_confirmation" required placeholder="password"/><br/>
-        <input type="submit"/><br/>
-    </form>
-    Déjà un compte ? <a href="{{route("login")}}">Connectez vous</a>
+        <input type="password" name="password" required placeholder="Mot de passe"/><br/>
+        <input type="password" name="password_confirmation" required placeholder="Confirmer le mot de passe"/><br/>
 
-@endsection
+        <button type="submit">S'inscrire</button><br/>
+    </form>
+
+    <p>
+        Déjà un compte ? <a href="{{ route('login') }}">Connectez-vous</a>
+    </p>
+</x-layout.app>
