@@ -24,7 +24,9 @@ class AvisController extends Controller
             'user_id' => Auth::id(),
         ]);
 
-        return redirect()->back()->with('success', 'Commentaire ajouté avec succès !');
+        return redirect()
+            ->route('articles.show', $article)
+            ->with('success', 'Commentaire ajouté avec succès !');
     }
 
     /**
@@ -32,12 +34,10 @@ class AvisController extends Controller
      */
     public function destroy(Avis $avis)
     {
-        if ($avis->user_id !== Auth::id() && !Auth::user()->isAdmin()) {
+        if ($avis->user_id !== Auth::id()) {
             abort(403, 'Action non autorisée.');
         }
-
         $avis->delete();
-
         return redirect()->back()->with('success', 'Commentaire supprimé.');
     }
 }
