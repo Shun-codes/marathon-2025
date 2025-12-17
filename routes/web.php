@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ArticleController::class, 'home'])->name('home');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+
+Route::post('/articles/{article}/like', [LikeController::class, 'store'])
+    ->name('articles.like');
+
 Route::get('/presentation', function () {
     return view('statiques.presentation');
 })->name('presentation');
