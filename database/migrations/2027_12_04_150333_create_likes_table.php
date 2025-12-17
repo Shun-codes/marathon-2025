@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->foreignIdFor(\App\Models\Article::class)->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->boolean("nature")->default(false);
+            $table->boolean("nature")->nullable();
 
             $table->timestamps();
             $table->unique(['user_id', 'article_id']);
@@ -27,8 +27,6 @@ return new class extends Migration {
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::table('likes', function (Blueprint $table) {
-            Schema::dropIfExists('likes');
-        });
+        Schema::dropIfExists('likes');
     }
 };
