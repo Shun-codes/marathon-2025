@@ -16,8 +16,16 @@ class Article extends Model
         return $this->hasMany(Avis::class);
     }
 
-    public function likes() {
-        return $this->belongsToMany(User::class, 'likes')->withPivot("nature");
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes')
+            ->withPivot('nature')
+            ->withTimestamps();
+    }
+
+    public function activeLikes()
+    {
+        return $this->likes()->wherePivot('nature', true);
     }
 
     public function accessibilite() {

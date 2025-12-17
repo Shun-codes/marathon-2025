@@ -16,7 +16,10 @@ return new class extends Migration {
             $table->foreignIdFor(\App\Models\Article::class)->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->boolean("nature");
+            $table->boolean("nature")->default(false);
+
+            $table->timestamps();
+            $table->unique(['user_id', 'article_id']);
         });
     }
 
