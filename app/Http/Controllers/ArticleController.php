@@ -113,6 +113,18 @@ class ArticleController extends Controller
         return redirect()->route('articles.show', $article->id)
             ->with('success', 'Article mis à jour avec succès !');
     }
+    public function destroy(Article $article)
+    {
+        if ($article->user_id !== auth()->id()) {
+            abort(403, 'Vous n’êtes pas autorisé à supprimer cet article.');
+        }
+
+        $article->delete();
+
+        return redirect()->route('articles.index')
+            ->with('success', 'Article supprimé avec succès.');
+    }
+
 
     /**
      * Page d’accueil : 3 articles les plus récents
