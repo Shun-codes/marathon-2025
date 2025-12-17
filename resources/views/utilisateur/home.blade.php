@@ -1,7 +1,5 @@
-@php use App\Models\Article; @endphp
-@extends("components.layout.app")
-
-@section('contenu')
-    La page d'un utilisateur
-
-@endsection
+<x-layout.app :title="'Profil du utilisateur'">
+    <div>
+        <h1>Page du utilisateur</h1>
+    </div>
+</x-layout.app>

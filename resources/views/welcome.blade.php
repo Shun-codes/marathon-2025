@@ -1,6 +1,3 @@
-@extends("components.layout.app")
-
-@section('contenu')
+<x-layout.app :title="'Page Accueil'">
     C'est le point de départ.
-
-@endsection
+</x-layout.app>

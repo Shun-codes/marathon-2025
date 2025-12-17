@@ -11,7 +11,7 @@
 <x-header/>
 
 <main>
-    @yield("contenu")
+    {{ $slot }}
 </main>
 
 <x-footer/>
