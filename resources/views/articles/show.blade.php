@@ -5,9 +5,9 @@
     <img src="{{ $article->image }}" alt="{{ $article->titre }}" style="max-width:300px;">
     <audio controls src="{{ $article->media }}"></audio>
 
-    <p><strong>Rythme :</strong> {{ $article->rythme->nom }}</p>
-    <p><strong>Accessibilité :</strong> {{ $article->accessibilite->nom }}</p>
-    <p><strong>Conclusion :</strong> {{ $article->conclusion->nom }}</p>
+    <p><strong>Rythme :</strong> {{ $article->rythme->texte }}</p>
+    <p><strong>Accessibilité :</strong> {{ $article->accessibilite->texte }}</p>
+    <p><strong>Conclusion :</strong> {{ $article->conclusion->texte }}</p>
 
     <p><strong>Nombre de vues :</strong> {{ $article->nb_vues }}</p>
 

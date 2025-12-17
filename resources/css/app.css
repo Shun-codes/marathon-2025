@@ -4,7 +4,7 @@ html {
 }
 body {
     /* Margin bottom by footer height */
-    margin-bottom: 00px;
+    margin-bottom: 30px;
 }
 
 main {
@@ -26,17 +26,13 @@ main {
     box-shadow: #333333 2px 2px 2px;
 }
 
-
-.app-info {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #333;
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    box-shadow: #333333 2px 2px 2px;
+p {
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
 }
-
 
 /*  style de welcome.blade.php  */
 
@@ -56,14 +52,13 @@ main {
 
 .articles .card {
     flex-basis: 28%;
-    margin: auto;
 }
 
 .articles .card {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     border: 1px solid #ddd;
-    justify-content: center;
     align-items: center;
     border-radius: 2rem;
     color: #006D2C;
@@ -134,13 +129,14 @@ main {
     font-weight: bold;
     border-radius: 2rem;
     padding: 0.7rem 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     border: solid #ffbf00;
 }
 
 .btn:hover {
     background-color: #ffbf00;
     color: #006D2C;
+    transition: all 0.3s ease;
 }
 
 
@@ -291,4 +287,47 @@ a.lien-a-footer {
 
 /* Style Contact */ 
 
-/* Fin Style Contact */
+/* Fin Style Contact *//* style Carte */ 
+
+.carte-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.carte-auteur a{
+    text-decoration: none;
+    color: #006D2C;
+    background-color: #ffbf00;
+    border-radius: 2rem;
+    padding: 0.2rem 1rem;
+}
+
+.carte-auteur a:hover{
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.carte-resume {
+    padding: 1rem 0;
+}
+
+.card img {
+    border-radius: 1rem;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.card h2 {
+    font-family: "Comfortaa", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* Fin style carte */ 
