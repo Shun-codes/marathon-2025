@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('/statiques/welcome');
 })->name("accueil");
 
+Route::get('/liste-article', function () {
+    return view('/article/liste-article');
+})->name("liste-article");
+
 Route::get('/contact', function () {
     return view('contact');
 })->name("contact");
