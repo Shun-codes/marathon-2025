@@ -39,4 +39,12 @@ class UserController extends Controller
             'utilisateur' => $utilisateur
         ]);
     }
+
+    public function toggleSuivi($id)
+    {
+        $userToFollow = User::findOrFail($id);
+        $me = auth()->user();
+        $me->suivis()->toggle($userToFollow->id);
+        return back();
+    }
 }

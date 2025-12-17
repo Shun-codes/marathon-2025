@@ -44,3 +44,4 @@ Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles
 Route::get('/rythmes/{id}', [ArticleController::class, 'byRythme'])->name('articles.byRythme');
 
 Route::get('/profil/{id}', [UserController::class, 'voirProfilPublic'])->name('profil.user');
+Route::post('/utilisateur/{id}/suivre', [UserController::class, 'toggleSuivi'])->name('utilisateur.suivre');

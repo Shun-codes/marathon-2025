@@ -12,6 +12,9 @@
             <p>Abonnements : {{ $utilisateur->suivis->count() }}</p>
         </div>
 
+        {{-- bouton s'abonner --}}
+        <x-follow-button :utilisateur="$utilisateur" />
+
         <hr>
 
         {{-- préférences --}}
