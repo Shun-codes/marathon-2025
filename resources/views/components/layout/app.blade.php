@@ -9,7 +9,7 @@
 </head>
 <body>
 <header>Ma super application</header>
-
+<x-navbar/>
 
 <main>
     @yield("contenu")
