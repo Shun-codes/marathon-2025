@@ -8,11 +8,13 @@ class Article extends Model
 {
     protected $guarded = [];
 
-    public function editeur() {
+    public function editeur()
+    {
         return $this->belongsTo(User::class, "user_id");
     }
 
-    public function avis() {
+    public function avis()
+    {
         return $this->hasMany(Avis::class);
     }
 
@@ -23,23 +25,28 @@ class Article extends Model
             ->withTimestamps();
     }
 
-    public function activeLikes()
+    public function nbLikes()
     {
-        return $this->likes()->wherePivot('nature', true);
+        return $this->likes()->wherePivot('nature', true)->count();
     }
 
-    public function accessibilite() {
-        return $this->belongsTo(Accessibilite::class);
+    public function nbDislikes()
+    {
+        return $this->likes()->wherePivot('nature', false)->count();
     }
-    
 
-    public function conclusion() {
+    public function conclusion()
+    {
         return $this->belongsTo(Conclusion::class);
     }
 
-    public function rythme() {
+    public function rythme()
+    {
         return $this->belongsTo(Rythme::class);
     }
 
-
+    public function accessibilite()
+    {
+        return $this->belongsTo(Accessibilite::class);
+    }
 }
