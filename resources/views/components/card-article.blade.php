@@ -1,4 +1,3 @@
-@props(['article'])
 <div class="card">
     <div class="carte-container">
         <p class="carte-auteur">
@@ -14,7 +13,18 @@
 
     
 
+    <p>
+        Statut :
+        @if($article->en_ligne)
+            <span>En ligne</span>
+        @else
+            <span>Hors ligne</span>
+        @endif
+    </p>
+
     <a href="{{ route('articles.show', $article->id) }}" class="btn btn-primary">
         Voir l’article
     </a>
+
+    <x-actif-button :article="$article" />
 </div>

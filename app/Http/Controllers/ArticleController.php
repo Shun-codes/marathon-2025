@@ -94,10 +94,23 @@ class ArticleController extends Controller
         ]);
 
         $validated['user_id'] = auth()->id();
-        $validated['en_ligne'] = true;
-
+        $validated['en_ligne'] = false;
+        //article hors ligne par défaut
         Article::create($validated);
 
         return redirect()->route('articles.index')->with('success', 'Article créé avec succès !');
     }
+
+    public function toggle(Article $article)
+    {
+        if ($article->user_id !== auth()->id()) {
+            abort(403, 'Vous n’êtes pas autorisé à modifier cet article.');
+        }
+
+        $article->en_ligne = !$article->en_ligne;
+        $article->save();
+
+        return back()->with('success', 'Statut de l’article mis à jour.');
+    }
+
 }

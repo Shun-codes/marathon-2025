@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ArticleController::class, 'home'])->name('home');
 
-Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
-
-Route::post('/articles/{article}/like', [LikeController::class, 'store'])
-    ->name('articles.like');
-
 Route::get('/presentation', function () {
     return view('statiques.presentation');
 })->name('presentation');
@@ -20,6 +15,13 @@ Route::get('/presentation', function () {
 
 // Liste des articles
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+
+Route::post('/articles/{article}/like', [LikeController::class, 'store'])
+    ->name('articles.like');
+
+Route::patch('/articles/{article}/toggle', [ArticleController::class, 'toggle'])
+    ->middleware('auth')
+    ->name('articles.toggle');
 
 Route::get('/articles/create', [ArticleController::class, 'create'])
     ->middleware('auth')
