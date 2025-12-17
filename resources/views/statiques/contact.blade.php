@@ -16,7 +16,7 @@
         <p class="contact-soustitle">Contactez-nous ! Notre équipe vous répond rapidement </p>
     </div>
 
-    <form method="POST" action="#">
+    <form method="POST" action="#" class="form-form>
         <div class="form-group">
             <label for="name">Nom :</label>
             <input type="text" id="name" name="name">
