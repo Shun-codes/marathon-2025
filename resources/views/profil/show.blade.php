@@ -23,8 +23,8 @@
 
         {{-- statistiques sur les followers --}}
         <div>
-            <p>Abonnés : {{ $utilisateur->followers->count() }}</p>
-            <p>Abonnements : {{ $utilisateur->followings->count() }}</p>
+            <p>Abonnés : {{ $utilisateur->suiveurs()->count() }}</p>
+            <p>Abonnements : {{ $utilisateur->suivis()->count() }}</p>
         </div>
 
     </section>
