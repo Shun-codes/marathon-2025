@@ -1,6 +1,4 @@
-@extends('components.layout.app')
-
-@section("contenu")
+<x-layout.app :title="'Test de Vite'">
     @vite(['resources/css/test-vite.css'])
 
     <div class="container">
@@ -66,8 +64,5 @@
             </li>
         </ul>
     </div>
-
-    @vite(['resources/js/test-vite.js'])
-
-@endsection
+</x-layout.app>
 
