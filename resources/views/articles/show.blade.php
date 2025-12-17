@@ -18,9 +18,10 @@
         <p>Aucun commentaire pour le moment.</p>
     @endforelse
 
-    <h3>Likes</h3>
-    <p>{{ $article->likes->count() }} likes</p>
-    @foreach($article->likes as $like)
-        <p>{{ $like->name }} ({{ $like->pivot->nature }})</p>
-    @endforeach
+
+    @if(auth()->check())
+        <x-like :article="$article" />
+    @else
+        <p><a href="{{ route('login') }}">Connectez-vous</a> pour liker cet article.</p>
+    @endif
 </x-layout.app>
