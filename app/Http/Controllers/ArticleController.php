@@ -15,7 +15,7 @@ class ArticleController extends Controller
             ->take(3)
             ->get();
 
-        return view('welcome', compact('articles'));
+        return view('statiques.welcome', compact('articles'));
     }
 
     public function index()
