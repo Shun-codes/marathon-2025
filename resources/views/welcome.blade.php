@@ -1,3 +1,8 @@
 <x-layout.app :title="'Page Accueil'">
-    C'est le point de départ.
+
+<div class="articles">
+    @foreach($articles as $article)
+        <x-card-article :article="$article"/>
+    @endforeach
+</div>
 </x-layout.app>
