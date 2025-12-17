@@ -5,12 +5,16 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AvisController;
 
 Route::get('/', [ArticleController::class, 'home'])->name('home');
 
 Route::get('/presentation', function () {
     return view('statiques.presentation');
 })->name('presentation');
+
+Route::post('/articles/{article}/avis', [AvisController::class, 'store'])->name('avis.store');
+Route::delete('/avis/{avis}', [AvisController::class, 'destroy'])->name('avis.destroy');
 
 
 // Liste des articles
