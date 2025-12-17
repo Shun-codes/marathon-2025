@@ -7,7 +7,9 @@
 
     <div class="articles">
         @foreach($articles as $article)
-            <x-card-article :article="$article" />
+            @if($article->en_ligne || (auth()->check() && auth()->id() === $article->user_id))
+                <x-card-article :article="$article" />
+            @endif
         @endforeach
     </div>
 </x-layout.app>

@@ -131,9 +131,18 @@ class ArticleController extends Controller
      */
     public function home()
     {
-        $articles = Article::orderBy('created_at', 'desc')
-            ->take(3)
-            ->get();
+        $query = Article::orderBy('created_at', 'desc');
+
+        if (auth()->check()) {
+            $query->where(function ($q) {
+                $q->where('en_ligne', true)
+                    ->orWhere('user_id', auth()->id());
+            });
+        } else {
+            $query->where('en_ligne', true);
+        }
+
+        $articles = $query->take(3)->get();
 
         return view('statiques.welcome', compact('articles'));
     }
