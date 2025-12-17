@@ -8,8 +8,7 @@
 @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
-<header>Ma super application</header>
-<x-navbar/>
+<x-header/>
 
 <main>
     @yield("contenu")
