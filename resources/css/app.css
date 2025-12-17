@@ -34,3 +34,77 @@ footer {
     box-shadow: #333333 2px 2px 2px;
 }
 
+.navbar {
+    background-color: rgba(0, 145, 58, 0.87);
+    padding: 2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 2px solid #009c3b; /* Ligne verte du bas */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    gap: 2rem;
+}
+
+.navbar a.lien-a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold ;
+    font-family: "Inter", sans-serif;
+    color: #ffffff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.navbar a.lien-a#active-page {
+    color: #ffdf00;
+    font-weight: bold;
+}
+
+/* Effet au survol générique */
+.navbar a:hover {
+    color: #c01864; /* Jaune Brésil */
+    text-shadow: 0 0 5px rgba(255, 223, 0, 0.3);
+}
+
+
+.navbar a:hover::before {
+    opacity: 1;
+}
+
+
+a.btn-connexion{
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color : #FFBF00;
+    font-weight : bold ;
+    padding : 10px 20px;
+    border-radius : 15px;
+    color : #fff;
+}
+a.btn-connexion:hover{
+    background-color : #e6ac00;
+    color : #ffffff;
+}
+
+.logo-navbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-navbar .logo-text {
+    font-family: "eight-condensed", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.logo-navbar img {
+    height: 80px;
+    width: auto;
+}
