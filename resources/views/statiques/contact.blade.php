@@ -1,6 +1,20 @@
 <x-layout.app :title="'Contact'">
+    <style>
+        main{
+            background-color: #006D2C;
+        }
+        footer.footer-section{
+            margin-top: 0;
+            border-top : 1px solid #777777a8;
+        }
+    </style>
+<div class = "main-contact">
 <div class="contact-wrapper">
-    <h1 class="contact-title">Page de contact</h1>
+    <div class="contact-gauche">
+            <img src="{{ Vite::asset('resources/images/icon_soleil.webp') }}" alt="Soleil" class="contact-soleil">
+        <h1 class="contact-title">Besoin d'informations</h1>
+        <p class="contact-soustitle">Contactez-nous ! Notre équipe vous répond rapidement </p>
+    </div>
 
     <form method="POST" action="#">
         <div class="form-group">
@@ -20,5 +34,6 @@
 
         <button type="submit" class="btn-submit">Envoyer</button>
     </form>
+</div>
 </div>
 </x-layout.app>
