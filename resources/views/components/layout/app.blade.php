@@ -12,6 +12,23 @@
 <x-header/>
 
 <main>
+    @if(session('success'))
+        <div style="color: green; margin-bottom: 1em;">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div style="color: red; margin-bottom: 1em;">
+            <strong>Une erreur est survenue :</strong>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     {{ $slot }}
 </main>
 

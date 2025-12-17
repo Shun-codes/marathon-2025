@@ -17,9 +17,17 @@ Route::get('/presentation', function () {
     return view('statiques.presentation');
 })->name('presentation');
 
-Route::get('/liste-article', function () {
-    return view('/articles/liste-article');
-})->name("liste-article");
+
+// Liste des articles
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+
+Route::get('/articles/create', [ArticleController::class, 'create'])
+    ->middleware('auth')
+    ->name('articles.create');
+
+Route::post('/articles', [ArticleController::class, 'store'])
+    ->middleware('auth')
+    ->name('articles.store');
 
 Route::get('/contact', function () {
     return view('statiques.contact');
