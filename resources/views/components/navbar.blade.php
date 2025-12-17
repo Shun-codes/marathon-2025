@@ -1,6 +1,6 @@
 <nav>
     <a href="{{route('home')}}">Accueil</a>
-    <a href="#">Presentation</a>
+    <a href="{{ route('presentation') }}">Présentation</a>
     <a href="{{route('liste-article')}}">Article</a>
     <a href="{{ route('contact') }}">Contact</a>
 

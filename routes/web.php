@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ArticleController::class, 'home'])->name('home');
 
+Route::get('/presentation', function () {
+    return view('statiques.presentation');
+})->name('presentation');
+
+
 Route::get('/liste-article', function () {
     return view('/articles/liste-article');
 })->name("liste-article");
