@@ -14,14 +14,52 @@ class ArticleController extends Controller
     /**
      * Liste des articles
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::with(['editeur', 'rythme', 'accessibilite', 'conclusion'])
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $query = Article::with(['editeur', 'rythme', 'accessibilite', 'conclusion'])
+            ->orderBy('created_at', 'desc');
 
-        return view('articles.liste-article', compact('articles'));
+        // Filtrage par auteur (nom)
+        if ($request->filled('auteur')) {
+            $query->whereHas('editeur', function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->auteur . '%');
+            });
+        }
+
+        // Filtrage par rythme
+        if ($request->filled('rythme_id')) {
+            $query->where('rythme_id', $request->rythme_id);
+        }
+
+        // Filtrage par accessibilité
+        if ($request->filled('accessibilite_id')) {
+            $query->where('accessibilite_id', $request->accessibilite_id);
+        }
+
+        // Filtrage par conclusion
+        if ($request->filled('conclusion_id')) {
+            $query->where('conclusion_id', $request->conclusion_id);
+        }
+
+        // Condition de visibilité
+        if (auth()->check()) {
+            $query->where(function ($q) {
+                $q->where('en_ligne', true)
+                    ->orWhere('user_id', auth()->id());
+            });
+        } else {
+            $query->where('en_ligne', true);
+        }
+
+        $articles = $query->get();
+
+        $rythmes = Rythme::all();
+        $accessibilites = Accessibilite::all();
+        $conclusions = Conclusion::all();
+
+        return view('articles.liste-article', compact('articles', 'rythmes', 'accessibilites', 'conclusions'));
     }
+
 
     /**
      * Page d’un article : détails + incrémentation des vues
