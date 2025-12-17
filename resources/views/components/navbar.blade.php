@@ -1,8 +1,8 @@
 <nav>
     <a href="{{route('home')}}">Accueil</a>
+    <a href="#">Presentation</a>
     <a href="{{route('liste-article')}}">Article</a>
-    <a href="{{route('test-vite')}}">Test Vite</a>
-    <a href="#">Contact</a>
+    <a href="{{ route('contact') }}">Contact</a>
 
     @auth
         {{Auth::user()->name}}

@@ -1,5 +1,8 @@
-<x-layout.app>
-    <h1>
-        Bienvenue sur notre site ;)
-    </h1>
+<x-layout.app :title="'Page Accueil'">
+
+    <div class="articles">
+        @foreach($articles as $article)
+            <x-card-article :article="$article"/>
+        @endforeach
+    </div>
 </x-layout.app>

@@ -10,12 +10,8 @@ Route::get('/liste-article', function () {
 })->name("liste-article");
 
 Route::get('/contact', function () {
-    return view('contact');
-})->name("contact");
-
-Route::get('/test-vite', function () {
-    return view('test-vite');
-})->name("test-vite");
+    return view('statiques.contact');
+})->name('contact');
 
 Route::get('/articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/rythmes/{id}', [ArticleController::class, 'byRythme'])->name('articles.byRythme');
