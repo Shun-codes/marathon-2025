@@ -29,20 +29,18 @@
 
         <hr>
         {{-- liste des articles écrits --}}
-        <h2>Articles écrits</h2>
         <div>
+            <h2>Articles écrits</h2>
+            <div>
+                @forelse($utilisateur->mesArticles()->where('en_ligne', 1)->get() as $article)
+                    <x-card-article :article="$article" />
+                @empty
+                    <p>Aucun article écrits.</p>
+                @endforelse
+
+            </div>
         </div>
         <hr>
-
-        {{-- articles qu'il aime --}}
-        <h2>Articles aimés</h2>
-        <ul>
-            @forelse($utilisateur->likes as $article)
-                <li>{{ $article->titre }}</li>
-            @empty
-                <li>Cet utilisateur n'a pas encore aimé d'articles.</li>
-            @endforelse
-        </ul>
 
     </section>
 </x-layout.app>
