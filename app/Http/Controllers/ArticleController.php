@@ -18,6 +18,15 @@ class ArticleController extends Controller
         return view('welcome', compact('articles'));
     }
 
+    public function index()
+    {
+        $articles = Article::with(['editeur', 'rythme', 'accessibilite', 'conclusion'])
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('articles.liste-article', compact('articles'));
+    }
+
     /**
      * Page d’un article : détails + incrémentation des vues
      */
