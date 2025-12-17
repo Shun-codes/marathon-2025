@@ -14,8 +14,6 @@
                 <img src="{{ $utilisateur->avatar }}"
                      alt="Avatar de {{ $utilisateur->name }}">
             </div>
-            <p>DEBUG : Le chemin est : {{ $utilisateur->avatar }}</p>
-
             <div>
                 <h1>Nom : {{ $utilisateur->name }}</h1>
                 <p>Email : {{ $utilisateur->email }}</p>
@@ -29,32 +27,31 @@
             <p>Abonnements : {{ $utilisateur->suivis()->count() }}</p>
         </div>
 
-        {{-- ses articles en cours de rédaction --}}
+        {{-- Ses articles en cours de rédaction --}}
         <div>
             <h2>Articles en cours de rédaction</h2>
-            <ul>
-                @forelse($utilisateur->mesArticles()->where('is_published', false)->get() as $article)
-                    <li>
-                        <a href="{{ route('articles.edit', $article->id) }}">{{ $article->title }}</a>
-                    </li>
+            <div>
+                @forelse($utilisateur->mesArticles()->where('en_ligne', 0)->get() as $article)
+                    {{-- On utilise ton composant existant --}}
+                    <x-card-article :article="$article" />
                 @empty
-                    <li>Aucun article en cours de rédaction.</li>
+                    <p>Aucun article en cours de rédaction.</p>
                 @endforelse
-            </ul>
+            </div>
         </div>
 
-        {{-- les articles qu’il a aimés --}}
+        <br>
+
+        {{-- Les articles qu’il a aimés --}}
         <div>
             <h2>Articles aimés</h2>
-            <ul>
+            <div>
                 @forelse($utilisateur->likes as $article)
-                    <li>
-                        <a href="{{ route('articles.show', $article->id) }}">{{ $article->title }}</a>
-                    </li>
+                    <x-card-article :article="$article" />
                 @empty
-                    <li>Aucun article aimé.</li>
+                    <p>Aucun article aimé.</p>
                 @endforelse
-            </ul>
+            </div>
         </div>
 
     </section>
