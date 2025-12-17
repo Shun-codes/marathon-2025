@@ -14,8 +14,6 @@
                 <img src="{{ $utilisateur->avatar }}"
                      alt="Avatar de {{ $utilisateur->name }}">
             </div>
-            <p>DEBUG : Le chemin est : {{ $utilisateur->avatar }}</p>
-            <img src="{{ $utilisateur->avatar }}" ...>
             <div>
                 <h1>Nom : {{ $utilisateur->name }}</h1>
                 <p>Email : {{ $utilisateur->email }}</p>
@@ -27,6 +25,33 @@
         <div>
             <p>Abonnés : {{ $utilisateur->suiveurs()->count() }}</p>
             <p>Abonnements : {{ $utilisateur->suivis()->count() }}</p>
+        </div>
+
+        {{-- Ses articles en cours de rédaction --}}
+        <div>
+            <h2>Articles en cours de rédaction</h2>
+            <div>
+                @forelse($utilisateur->mesArticles()->where('en_ligne', 0)->get() as $article)
+                    {{-- On utilise ton composant existant --}}
+                    <x-card-article :article="$article" />
+                @empty
+                    <p>Aucun article en cours de rédaction.</p>
+                @endforelse
+            </div>
+        </div>
+
+        <br>
+
+        {{-- Les articles qu’il a aimés --}}
+        <div>
+            <h2>Articles aimés</h2>
+            <div>
+                @forelse($utilisateur->likes as $article)
+                    <x-card-article :article="$article" />
+                @empty
+                    <p>Aucun article aimé.</p>
+                @endforelse
+            </div>
         </div>
 
     </section>
