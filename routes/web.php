@@ -47,3 +47,6 @@ Route::get('/rythmes/{id}', [ArticleController::class, 'byRythme'])->name('artic
 
 Route::get('/profil/{id}', [UserController::class, 'voirProfilPublic'])->name('profil.user');
 Route::post('/utilisateur/{id}/suivre', [UserController::class, 'toggleSuivi'])->name('utilisateur.suivre');
+
+Route::get('/profil/modifier', [UserController::class, 'edit'])->name('profil.edit');
+Route::put('/profil/modifier', [UserController::class, 'update'])->name('profil.update');

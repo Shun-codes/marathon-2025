@@ -14,6 +14,8 @@
                 <img src="{{ $utilisateur->avatar }}"
                      alt="Avatar de {{ $utilisateur->name }}">
             </div>
+            <p>DEBUG : Le chemin est : {{ $utilisateur->avatar }}</p>
+            <img src="{{ $utilisateur->avatar }}" ...>
             <div>
                 <h1>Nom : {{ $utilisateur->name }}</h1>
                 <p>Email : {{ $utilisateur->email }}</p>

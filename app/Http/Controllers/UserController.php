@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -46,5 +48,24 @@ class UserController extends Controller
         $me = auth()->user();
         $me->suivis()->toggle($userToFollow->id);
         return back();
+    }
+
+    public function update(Request $request)
+    {
+        $utilisateur = auth()->user();
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'avatar' => 'nullable|image|max:2048|dimensions:max_width=512,max_height=512',        ]);
+        $utilisateur->name = $request->name;
+        if ($request->hasFile('avatar')) {
+
+            if ($utilisateur->getRawOriginal('avatar')) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $utilisateur->getRawOriginal('avatar')));
+            }
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $utilisateur->avatar = '/storage/' . $path;
+        }
+        $utilisateur->save();
+        return redirect()->route('profil.show')->with('success', 'Profil mis à jour avec succès !');
     }
 }
