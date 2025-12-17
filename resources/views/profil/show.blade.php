@@ -3,7 +3,7 @@
 
         {{-- navigation : retourner à l'accueil et modifier le profil --}}
         <div>
-            <a href="{{ route('accueil') }}">Retour à l'accueil</a>
+            <a href="{{ route('home') }}">Retour à l'accueil</a>
             <br>
             <a href="{{ route('profil.edit', $utilisateur->id) }}">Modifier mon profil</a>
         </div>
