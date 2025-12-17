@@ -1,8 +1,13 @@
-<nav>
-    <a href="{{route('home')}}">Accueil</a>
-    <a href="{{route('articles.index')}}">Article</a>
-    <a href="{{ route('presentation') }}">Présentation</a>
-    <a href="{{ route('contact') }}">Contact</a>
+<nav class="navbar">
+    <div class="logo-navbar">
+        <img src="{{ Vite::asset('resources/images/logo.webp') }}" alt="Logo OsolSound">
+        <p class="logo-text">O Sol Sound</p>
+    </div> 
+
+    <a href="{{route('home')}}" class="lien-a" id="active-page">Accueil</a>
+    <a href="{{route('articles.index')}}"class="lien-a">Article</a>
+    <a href="{{ route('presentation') }}"class="lien-a">Présentation</a>
+    <a href="{{ route('contact') }}"class="lien-a">Contact</a>
 
     @auth
         <a href="{{route("profil.show")}}">
@@ -14,7 +19,6 @@
             @csrf
         </form>
     @else
-        <a href="{{route("login")}}">Login</a>
-        <a href="{{route("register")}}">Register</a>
+        <a href="{{route("login")}}" class="btn-connexion">Connexion</a>
     @endauth
 </nav>
