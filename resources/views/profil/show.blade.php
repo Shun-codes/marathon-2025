@@ -27,12 +27,22 @@
             <p>Abonnements : {{ $utilisateur->suivis()->count() }}</p>
         </div>
 
+        {{-- Ses articles en ligne --}}
+        <div>
+            <h2>Articles en ligne</h2>
+            <div>
+                @forelse($utilisateur->mesArticles()->where('en_ligne', 1)->get() as $article)
+                    <x-card-article :article="$article" />
+                @empty
+                    <p>Aucun article en ligne.</p>
+                @endforelse
+            </div>
+        </div>
         {{-- Ses articles en cours de rédaction --}}
         <div>
             <h2>Articles en cours de rédaction</h2>
             <div>
                 @forelse($utilisateur->mesArticles()->where('en_ligne', 0)->get() as $article)
-                    {{-- On utilise ton composant existant --}}
                     <x-card-article :article="$article" />
                 @empty
                     <p>Aucun article en cours de rédaction.</p>
