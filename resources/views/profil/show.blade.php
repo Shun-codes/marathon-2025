@@ -1,58 +1,89 @@
 <x-layout.app title="Mon profil">
-    <section>
 
-        {{-- navigation : retourner à l'accueil et modifier le profil --}}
-        <div>
-            <a href="{{ route('home') }}">Retour à l'accueil</a>
-            <br>
-            <a href="{{ route('profil.edit', $utilisateur->id) }}">Modifier mon profil</a>
-        </div>
+<style>
+    footer.footer-section{
+        margin-top: 0;
+        border-top : 1px solid #777777a8;
+    }
 
-        {{-- profil : avatar + infos du compte --}}
-        <div>
-            <div>
-                <img src="{{ $utilisateur->avatar }}"
-                     alt="Avatar de {{ $utilisateur->name }}">
+    p{
+        margin-bottom:30px;
+    }
+</style>
+
+    <section class="profilcss-section">
+        <div class="profilcss-container">
+
+            <!-- CARTE PROFIL (Fond Blanc) -->
+            <div class="profilcss-header-card">
+                
+                <!-- Liens de navigation -->
+                <div class="profilcss-nav-links">
+                    <a href="{{ route('home') }}">← Retour à l'accueil</a>
+                    <a href="{{ route('profil.edit', $utilisateur->id) }}" style="background: #006D2C; color: white; padding: 5px 15px; border-radius: 4px; text-decoration: none;">
+                        Modifier mon profil
+                    </a>
+                </div>
+
+                <!-- Infos Utilisateur -->
+                <div class="profilcss-user-info">
+                    <div class="profilcss-avatar-wrapper">
+                        <!-- Fallback avatar si vide -->
+                        <img src="{{ $utilisateur->avatar ?? asset('images/default-avatar.png') }}"
+                             alt="Avatar de {{ $utilisateur->name }}"
+                             class="profilcss-avatar">
+                    </div>
+                    
+                    <div class="profilcss-info-text">
+                        <h1>{{ $utilisateur->name }}</h1>
+                        <p><strong>Email :</strong> {{ $utilisateur->email }}</p>
+                        <p><strong>Membre depuis :</strong> {{ $utilisateur->created_at->format('d/m/Y') }}</p>
+                        
+                        <!-- Statistiques -->
+                        <div class="profilcss-stats">
+                            <div class="profilcss-stat-item">
+                                <span class="profilcss-stat-value">{{ $utilisateur->suiveurs()->count() }}</span>
+                                <span class="profilcss-stat-label">Abonnés</span>
+                            </div>
+                            <div class="profilcss-stat-item">
+                                <span class="profilcss-stat-value">{{ $utilisateur->suivis()->count() }}</span>
+                                <span class="profilcss-stat-label">Abonnements</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h1>Nom : {{ $utilisateur->name }}</h1>
-                <p>Email : {{ $utilisateur->email }}</p>
-                <p>Membre depuis : {{ $utilisateur->created_at }}</p>
+
+            <!-- ARTICLES EN COURS (Brouillons) -->
+            <div class="profilcss-content-section">
+                <h2 class="profilcss-section-title">Articles en cours de rédaction</h2>
+                
+                <div class="profilcss-grid">
+                    @forelse($utilisateur->mesArticles()->where('en_ligne', 0)->get() as $article)
+                        <x-card-article :article="$article" />
+                    @empty
+                        <div class="profilcss-empty-msg">
+                            Aucun article en cours de rédaction.
+                        </div>
+                    @endforelse
+                </div>
             </div>
-        </div>
 
-        {{-- statistiques sur les followers --}}
-        <div>
-            <p>Abonnés : {{ $utilisateur->suiveurs()->count() }}</p>
-            <p>Abonnements : {{ $utilisateur->suivis()->count() }}</p>
-        </div>
-
-        {{-- Ses articles en cours de rédaction --}}
-        <div>
-            <h2>Articles en cours de rédaction</h2>
-            <div>
-                @forelse($utilisateur->mesArticles()->where('en_ligne', 0)->get() as $article)
-                    {{-- On utilise ton composant existant --}}
-                    <x-card-article :article="$article" />
-                @empty
-                    <p>Aucun article en cours de rédaction.</p>
-                @endforelse
+            <!-- ARTICLES AIMÉS -->
+            <div class="profilcss-content-section">
+                <h2 class="profilcss-section-title">Articles aimés</h2>
+                
+                <div class="profilcss-grid">
+                    @forelse($utilisateur->likes as $article)
+                        <x-card-article :article="$article" />
+                    @empty
+                        <div class="profilcss-empty-msg">
+                            Aucun article aimé pour le moment.
+                        </div>
+                    @endforelse
+                </div>
             </div>
+
         </div>
-
-        <br>
-
-        {{-- Les articles qu’il a aimés --}}
-        <div>
-            <h2>Articles aimés</h2>
-            <div>
-                @forelse($utilisateur->likes as $article)
-                    <x-card-article :article="$article" />
-                @empty
-                    <p>Aucun article aimé.</p>
-                @endforelse
-            </div>
-        </div>
-
     </section>
 </x-layout.app>
