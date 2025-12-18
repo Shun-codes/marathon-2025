@@ -169,7 +169,8 @@ class ArticleController extends Controller
      */
     public function home()
     {
-        $query = Article::orderBy('created_at', 'desc');
+        $query = Article::orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc');
 
         if (auth()->check()) {
             $query->where(function ($q) {

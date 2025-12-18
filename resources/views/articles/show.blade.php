@@ -32,9 +32,9 @@
                 </div>
             </div>
         @endif
-        
+
         <div class="image-container">
-            <img src="{{   asset($article->image) }}" alt="{{ $article->titre }}" style="max-width:300px;">
+            <img src="{{ asset(path: $article->image) }}" alt="{{ $article->titre }}" style="max-width:300px;">
             <div>
                 <p class="carte-auteur"><strong>{{ $article->editeur->name }}</strong> </p>
                 <p class="carte-auteur"><strong>{{ $article->nb_vues }} vues</strong> </p>
@@ -44,31 +44,41 @@
         <div id="article-infos">
             <h1 class="titre">{{ $article->titre }}</h1>
             <p><strong class="S-titre">Résumé :</strong> {{ $article->resume }}</p>
+            <p><strong class="S-titre">Texte :</strong> {{ $article->texte }}</p>
             <p><strong class="S-titre">Rythme :</strong> {{ $article->rythme->texte }}</p>
             <p><strong class="S-titre">Accessibilité :</strong> {{ $article->accessibilite->texte }}</p>
             <p><strong class="S-titre">Conclusion :</strong> {{ $article->conclusion->texte }}</p>
             <audio controls src="{{ $article->media }}"></audio>
-            
+
             @if(auth()->check())
                 <x-like :article="$article" />
             @else
                 <p><a href="{{ route('login') }}">Connectez-vous</a> pour liker cet article.</p>
             @endif
         </div>
+            <div id="commentaires">
+                <h3 class="titre">Commentaires</h3>
+                <div id="avis-container">
+                    @forelse($article->avis as $avis)
+                        <x-commentaire :avis="$avis" />
+                    @empty
+                        <p>Aucun commentaire pour le moment.</p>
+                    @endforelse
+                </div>
 
-        <div id="commentaires">   
-            <h3 class="titre">Commentaires</h3>
-            <div id="avis-container">
-                @forelse($article->avis as $avis)
-                    <x-commentaire :avis="$avis" />
-                @empty
-                    <p>Aucun commentaire pour le moment.</p>
-                @endforelse
-            </div>
-            
 
                 <x-commentaire-form :article="$article" />
-        </div>
+            </div>
+    <p><strong>Nombre de vues :</strong> {{ $article->nb_vues }}</p>
+
+    <h3>Commentaires</h3>
+    @forelse($article->avis as $avis)
+            <x-commentaire :avis="$avis" />
+    @empty
+        <p>Aucun commentaire pour le moment.</p>
+    @endforelse
+
+        <x-commentaire-form :article="$article" />
 
     </section>
 </x-layout.app>
