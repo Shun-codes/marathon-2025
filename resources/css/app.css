@@ -324,7 +324,6 @@ a.lien-a-footer {
 
 .main-contact{
     margin : 0;
-    background-color: #006D2C;
     border-radius: 5rem;
 }
 
@@ -338,7 +337,7 @@ a.lien-a-footer {
 }
 .contact-gauche{
     flex: 1;
-    color: white;
+    color: #006D2C;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -369,11 +368,11 @@ a.lien-a-footer {
     margin-top: 1rem;
     position: absolute;
     z-index: 0;
-    top : 100px;
-    left : 350px;
+    top : 80px;
+    left : 150px;
     opacity: 40%;
 }
-.form-form{
+.form-contact{
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -423,6 +422,21 @@ a.lien-a-footer {
     background-color: #e6ac00;
     transition: all 0.3s ease;
     color:brown;
+}
+
+.rgpd-consent{
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+.rgpd-consent input{
+    margin-right: 0.5rem;
+}
+
+.rgpd-consent a{
+    color: #006D2C;
+    text-decoration: none;
 }
 
 

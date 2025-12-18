@@ -1,7 +1,7 @@
 <x-layout.app :title="'Contact'">
     <style>
         main{
-            background-color: #006D2C;
+            background-color: #fff;
         }
         footer.footer-section{
             margin-top: 0;
@@ -16,21 +16,26 @@
             <p class="contact-soustitle">Contactez-nous ! Notre équipe vous répond rapidement </p>
         </div>
 
-        <form method="POST" action="#" class="form-form">
-            <div class="form-group">
-                <label for="name">Nom :</label>
-                <input type="text" id="name" name="name">
-            </div>
+    <form method="POST" action="#" class="form-contact">
+        <div class="form-group">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom">
+        </div>
 
-            <div class="form-group">
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email">
-            </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre email">
+        </div>
 
-            <div class="form-group">
-                <label for="message">Message :</label>
-                <textarea id="message" name="message"></textarea>
-            </div>
+        <div class="form-group">
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" placeholder="Votre Message"></textarea>
+        </div>
+        
+        <div class="rgpd-consent">
+            <input type="checkbox" id="rgpd" name="rgpd" required>
+            <label for="rgpd">J'accepte que mes données soient utilisées dans le cadre de ma demande de contact conformément à la <a href="{{ route('home')}}">politique de confidentialité</a>.</label>
+        </div>
 
             <button type="submit" class="btn-submit">Envoyer</button>
         </form>
