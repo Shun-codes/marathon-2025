@@ -793,7 +793,7 @@ a.lien-a-footer {
 #pres-container h1 {
     position: absolute;
     color: white;
-    font-size: 7rem;
+    font-size: 7vw;
     top: 0;
     right: 50%;
     transform: translate(50%, -62%);
@@ -809,17 +809,20 @@ a.lien-a-footer {
     transform: translate(50%, -50%);
     z-index: -1;
     transform-origin: center;
+}
+.flip-card-front>img {
     animation: rotationCentree 1.5s ease-out forwards;
+    transform: translate(60%, -50%);
 }
 @keyframes rotationCentree {
     0% { 
         /* On DOIT garder le translate ici, sinon l'image saute à son point d'origine */
-        transform: translate(50%, -50%) rotate(-180deg); 
+        transform: translate(60%, -50%) rotate(-180deg); 
         opacity: 0;
     }
     100% { 
         /* On garde le même translate, seul le rotate change */
-        transform: translate(50%, -50%) rotate(0deg); 
+        transform: translate(60%, -50%) rotate(0deg); 
         opacity: 1;
     }
 }
@@ -915,6 +918,7 @@ a.lien-a-footer {
         width: 100%;
         aspect-ratio: 1 / 1;
         object-fit: cover;
+
         object-position: center;
     }
 
@@ -975,7 +979,36 @@ a.lien-a-footer {
 }
 
 
+#styles-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #ffbf00;
+}
 
+.style-container {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 20%; /* Ajusté pour laisser de la place */
+    align-items: center;
+    height: 10rem;
+}
+
+.style-container img{
+    flex-basis: 30%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    height: 5rem;
+}
+
+.style-container div {
+    flex-basis: 70%;
+}
+
+.style-container div p{
+    text-align: center;
+}
 
 /* Fin Style page présentation */ 
 
@@ -999,6 +1032,9 @@ a.lien-a-footer {
     .apparitionG {
         animation: apparition-gauche 1s ease-out forwards;
     }
+    .apparitionD {
+        animation: apparition-droite 1s ease-out forwards;
+    }
     .apparition-top {
         animation: apparition-top 0.8s ease-out forwards;
     }
@@ -1019,6 +1055,13 @@ a.lien-a-footer {
         @keyframes apparition-gauche {
         0% { transform: translate(-250%, 0%); opacity: 0;}
         80% { transform: rotate(0deg) translate(5%, 0%); opacity: 1;}
+        100% { transform: rotate(0deg) translate(0%, 0%); opacity: 1;}
+    }
+
+    
+        @keyframes apparition-droite {
+        0% { transform: translate(100%, 0%); opacity: 0;}
+        80% { transform: rotate(0deg) translate(-5%, 0%); opacity: 1;}
         100% { transform: rotate(0deg) translate(0%, 0%); opacity: 1;}
     }
 
@@ -1111,6 +1154,7 @@ a.lien-a-footer {
     .burger-menu {
         display: flex;
         position: relative;
+        z-index: 5;
     }
 
     #nav-bar {
