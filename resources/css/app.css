@@ -1201,8 +1201,12 @@ video{
 }
 
 .titre-ttarticles{
+    font-family: "Comfortaa", sans-serif;
+    font-weight: bold;
     text-align: center;
+    font-size: 2.5rem;
 }
+
 
 /* Label spécifique */
 .ttarticles-label {
@@ -1221,7 +1225,9 @@ video{
     border: 1px solid #ddd;
     background-color: #f9f9f9;
     color: #333;
-    font-size: 0.95rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
     width: 100%;
     box-sizing: border-box;
     border-radius: 4px;
@@ -1252,21 +1258,23 @@ video{
 
 .ttarticles-btn{
     margin-top: 10px;
-    padding: 15px 30px;
-    border-radius: 1rem;
-    border: 1px solid #004d1f;
-    background-color: white;
+    padding: 12px 30px;
+    border-radius:2rem;
+    border: 2px solid #FFBF00;
+    background-color: #FFBF00;
     color: #006D2C;
-    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: transform 0.2s;
 }
 
 .ttarticles-btn:hover {
-    background-color: #009c3b;
     color:#004d1f;
+    border: 2px solid #fff;
+
 }
 
 /* --- GRILLE --- */
