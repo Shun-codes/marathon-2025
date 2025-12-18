@@ -904,8 +904,16 @@ a.lien-a-footer {
     font-size: 10rem;
     color: #ffdf00;
     transform: translate(50%, -50%) rotate(10deg);
-/* Fin Style page présentation */ 
 }
+
+.pres-vinyle {
+    background-color: red;
+}
+
+
+
+
+/* Fin Style page présentation */ 
 
 
 /* animations */

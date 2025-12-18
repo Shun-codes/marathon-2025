@@ -29,8 +29,9 @@ C’est une musique qui se caractérise par une certaine douceur, une voix feutr
 </section>
 
 <section class="pres-vinyle">
-
-    
+        <div class="container">
+            
+        </div>
 </section>
 
 
