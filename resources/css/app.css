@@ -2441,3 +2441,184 @@ footer.footer-section {
             .edit-profil-decoration { display: none; }
             .edit-profil-avatar-preview-container { flex-direction: column; text-align: center; }
         }   
+
+/* USER AUTRES PROFILS PAGE CSS */
+
+.user-profile-section {
+            width: 100%;
+            background: linear-gradient(135deg, #006D2C 0%, #004d1f 100%);
+            color: white;
+            min-height: 80vh;
+            padding: 40px 20px 100px 20px;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .user-profile-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .user-profile-decoration {
+            position: absolute;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.15; 
+        }
+
+        .user-profile-decoration img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .user-profile-decoration-left {
+            top: 50px;
+            left: -50px;
+            width: 300px;
+        }
+
+        .user-profile-decoration-right {
+            top: 200px;
+            right: -50px;
+            width: 250px;
+        }
+
+        .user-profile-header-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            color: #333;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            margin: 50px;
+            position: relative;
+            border-top: 6px solid #ffdf00;
+        }
+
+        .user-profile-info-block {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .user-profile-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #006D2C;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+        }
+
+        .user-profile-name-block h1 {
+            font-family: 'eight-condensed', sans-serif;
+            font-size: 3rem;
+            color: #006D2C;
+            margin: 0;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .user-profile-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .user-profile-stats strong {
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .user-profile-actions {
+            margin-top: 10px;
+        }
+
+        .user-profile-hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 30px 0;
+        }
+
+        .user-profile-prefs h3 {
+            font-family: 'eight-condensed', sans-serif;
+            font-size: 1.5rem;
+            color: #006D2C;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+        }
+
+        .user-profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .user-profile-tag {
+            background-color: #f0fdf4; 
+            color: #006D2C;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #bbf7d0;
+        }
+
+        .user-profile-articles-title {
+            font-family: 'eight-condensed', sans-serif;
+            font-size: 2.5rem;
+            color: #006D2C;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .user-profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom:2.5rem;
+        }
+
+        .user-profile-empty {
+            color: rgba(255,255,255,0.8);
+            font-style: italic;
+            font-size: 1.1rem;
+            background: rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .user-profile-info-block {
+                flex-direction: column;
+                text-align: center;
+            }
+            .user-profile-header-card {
+                padding: 25px;
+            }
+            .user-profile-name-block h1 {
+                font-size: 2.2rem;
+            }
+            .user-profile-stats {
+                justify-content: center;
+            }
+            .user-profile-actions {
+                text-align: center;
+            }
+        }
