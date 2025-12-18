@@ -1,9 +1,12 @@
 <x-layout.app>
 <style>
-    footer.footer-section{
-        margin-top: 0;
-        border-top : 1px solid #777777a8;
-    }
+        main{
+            background-color: #fff;
+        }
+        footer.footer-section{
+            margin-top: 0;
+            border-top : 1px solid #777777a8;
+        }
 </style>
  <div class="register-section">
     <!-- <div class="register-video-bg"> -->

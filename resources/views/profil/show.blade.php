@@ -9,6 +9,12 @@
     p{
         margin-bottom:30px;
     }
+
+    .carte-resume {
+    padding: 0.3rem 0;
+    text-align: center;
+    color: #ffffff;
+}
 </style>
 
     <section class="profilcss-section">
@@ -57,7 +63,14 @@
             <!-- ARTICLES EN COURS (Brouillons) -->
             <div class="profilcss-content-section">
                 <h2 class="profilcss-section-title">Articles en cours de rédaction</h2>
-                
+                <!-- Créer un article -->
+
+                @auth
+                    <a href="{{ route('articles.create') }}" class="profilcss-create-article-btn">
+                        + Créer un nouvel article
+                    </a>
+                @endauth
+
                 <div class="profilcss-grid">
                     @forelse($utilisateur->mesArticles()->where('en_ligne', 0)->get() as $article)
                         <x-card-article :article="$article" />

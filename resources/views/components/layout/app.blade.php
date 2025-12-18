@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>{{isset($title) ? $title : "Page en cours"}}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/webp" href="{{ Vite::asset('resources/images/logo.webp') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://use.typekit.net/idi8qqz.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
