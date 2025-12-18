@@ -11,29 +11,23 @@
     <h2>{{ $article->titre }}</h2>
     <img src="{{ asset(path: $article-> image) }}" alt="{{ $article->titre }}" style="max-width:200px;">
     <p class="carte-resume">{{ $article->resume }}</p>
-
-
-
-    <!-- <p>
-        Statut :
-        @if($article->en_ligne)
-            <span>En ligne</span>
-        @else
-            <span>Hors ligne</span>
-        @endif
-    </p> -->
     
     <a href="{{ route('articles.show', $article->id) }}" class="btn-card">
         Voir l’article
     </a>
 
-    <x-actif-button :article="$article" />
+    <div id="a-modifier"> <!-- bouton de mofif article -->
 
-    @auth
-        @if(auth()->id() === $article->user_id)
-            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning">
-                Modifier
-            </a>
-        @endif
-    @endauth
+        <x-actif-button :article="$article" />
+
+        @auth
+            @if(auth()->id() === $article->user_id)
+                <a class="btn-card-modif" href="{{ route('articles.edit', $article->id) }}">
+                    Modifier
+                </a>
+            @endif
+        @endauth
+
+    </div>
+
 </div>

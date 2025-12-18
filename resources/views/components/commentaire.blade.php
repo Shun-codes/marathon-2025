@@ -1,5 +1,6 @@
-<div class="border-b py-2">
-    <h3 class="S-titre">{{ $avis->user->name }}</h3>
+<div class="com glass">
+
+    <h3>{{ $avis->user->name }}</h3>
     <p>{{ $avis->contenu }}</p>
 
     @if(Auth::check() && Auth::id() === $avis->user_id)
@@ -9,4 +10,5 @@
             <button type="submit">Supprimer</button>
         </form>
     @endif
+
 </div>

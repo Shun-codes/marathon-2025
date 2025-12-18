@@ -43,7 +43,7 @@ burgerBtn.addEventListener('click', () => {
     } 
     });
 
-    textArea.addEventListener('mouseenter', () => {
+    /*textArea.addEventListener('mouseenter', () => {
         textArea.style.width = "500px";  
         textArea.style.height = "150px"; 
     });
@@ -52,4 +52,4 @@ burgerBtn.addEventListener('click', () => {
         textArea.style.width = "100%";   
         textArea.style.height = "20px"; 
     });
-
+*/
