@@ -1,5 +1,22 @@
 <x-layout.app :title="'Présentation'">
-<section class="container pres">
+<section class="pres">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div><h1 class="titre-B">Les origines </h1></div>
+                <img src="{{ Vite::asset('resources/images/vinyle.png') }}" alt="Logo guitare" class="vinyle-entree">
+                <i class='bx  bx-music' style='color:#ffffff'></i> 
+            </div>
+            <div class="flip-card-back">
+                <h1 class="titre">Origines</h1>
+            <audio controls="" src="https://comptines.tv/musiques/au_clair_de_la_lune.mp3"></audio>
+            <audio controls="" src="https://comptines.tv/musiques/au_clair_de_la_lune.mp3"></audio>
+            <audio controls="" src="https://comptines.tv/musiques/au_clair_de_la_lune.mp3"></audio>
+            <audio controls="" src="https://comptines.tv/musiques/au_clair_de_la_lune.mp3"></audio>
+            
+            </div>
+        </div>
+    </div>
     <div id="pres-container">
         <h1 class="titre">La Bossa Nova</h1>
         <img src="{{ Vite::asset('resources/images/logo.png') }}" alt="Logo guitare">
@@ -12,18 +29,8 @@ C’est une musique qui se caractérise par une certaine douceur, une voix feutr
 </section>
 
 <section class="pres-vinyle">
-<div class="flip-card">
-    <div class="flip-card-inner">
-        <div class="flip-card-front">
-        <h2>Recto</h2>
-        <p>photo vinyle ici</p>
-        </div>
-        <div class="flip-card-back">
-        <h2>Verso</h2>
-        <p>Albums</p>
-        </div>
-    </div>
-    </div>
+
+    
 </section>
 
 

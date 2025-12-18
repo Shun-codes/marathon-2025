@@ -80,7 +80,7 @@ p {
     text-transform: capitalize;
 }
 
-.titre2 {
+.titre2, .titre-B {
     text-align: center;
     color: #ffffff;
     font-size: 2.5rem;
@@ -621,6 +621,11 @@ a.lien-a-footer {
 .pres {
     background-color: #006D2C;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
 }
 
 #pres-container {
@@ -628,8 +633,8 @@ a.lien-a-footer {
     border: solid white;
     border-radius: 2rem;
     position: relative;
-    height: 15rem;
     margin-top: 5rem;
+    height: fit-content;
     /*background-image: url(../images/logo.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -637,6 +642,7 @@ a.lien-a-footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-basis: 50%;
 }
 
 #pres-container h1 {
@@ -648,32 +654,75 @@ a.lien-a-footer {
     transform: translate(50%, -62%);
     margin: 0;
     width: 100%;
+    z-index: 1;
 }
 
-.pres img {
+.flip-card-front img {
     position: absolute;
     top: 50%;
     right: 50%;
     transform: translate(50%, -50%);
     z-index: -1;
+    transform-origin: center;
+    animation: rotationCentree 1.5s ease-out forwards;
+}
+@keyframes rotationCentree {
+    0% { 
+        /* On DOIT garder le translate ici, sinon l'image saute à son point d'origine */
+        transform: translate(50%, -50%) rotate(-180deg); 
+        opacity: 0;
+    }
+    100% { 
+        /* On garde le même translate, seul le rotate change */
+        transform: translate(50%, -50%) rotate(0deg); 
+        opacity: 1;
+    }
+}
+
+@keyframes apparitionDroite {
+    0% { 
+        /* On DOIT garder le translate ici, sinon l'image saute à son point d'origine */
+        transform: translate(-50%, 50%); 
+        opacity: 0;
+    }
+    100% { 
+        /* On garde le même translate, seul le rotate change */
+        transform: translate(50%, -50%); 
+        opacity: 1;
+    }
+}
+
+#pres-container>img {
+    position: absolute;
+    top: 75%;
+    right: 6%;
+    transform: translate(50%, -50%);
+    z-index: 0;
+    width: 13rem;
 }
 
 .pres p {
-    margin: 2rem 1rem;
+    margin: 5rem 1rem;
     width: 80%;
     font-size: 1.2rem;
     font-weight: bold;
     line-height: 1.8rem;
+    z-index: 1;
+    color: white;
 }
 
 /* partie flip - card */ 
 /* Le conteneur définit la perspective pour l'effet 3D */
     .flip-card {
     background-color: transparent;
-    width: 300px;
-    height: 200px;
-    perspective: 1000px; 
-    margin-top: 5rem;
+    width: 500px;
+    height: fit-content;
+    perspective: 1000px;
+    margin: 8rem 2rem 8rem 2rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    flex-basis: 20%;
     }
 
     /* Le wrapper qui contient les deux faces */
@@ -684,7 +733,6 @@ a.lien-a-footer {
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d; /* Indispensable pour la 3D */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     }
 
     /* Rotation au survol */
@@ -707,9 +755,22 @@ a.lien-a-footer {
     }
 
     /* Style spécifique Front */
-    .flip-card-front {
-    background-color: #3498db;
-    color: white;
+    .flip-card-front>div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .flip-card-front>div h1 {
+        font-size: 4rem;
+    }
+
+    .flip-card-front img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
     }
 
     /* Style spécifique Back (déjà retourné par défaut) */
@@ -717,12 +778,57 @@ a.lien-a-footer {
     background-color: #2ecc71;
     color: white;
     transform: rotateY(180deg);
+    gap: 0.5rem;
+    padding: 2rem;
     }
 
+    audio {
+        width: 300px;
+        height: 50px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        filter: sepia(20%) contrast(90%); /* Une astuce pour changer un peu la teinte */
+    }
 
+        /* Modifier la couleur de fond du lecteur */
+    audio::-webkit-media-controls-enclosure {
+        background-color: #e6ac00;
+    }
+
+    /* Modifier le bouton Play */
+    audio::-webkit-media-controls-play-button {
+        background-color: #e6ac00;
+        border-radius: 50%;
+    }
+
+.bx-music:before {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    font-size: 10rem;
+    color: #ffdf00;
+    transform: translate(50%, -50%) rotate(10deg);
 /* Fin Style page présentation */ 
+}
 
+    .flip-card-front div {
+        width: 80%;
+        height: 100%;
+        background-color: #004d1f;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-30%, 0);
+    }
 
+    .vinyle-entree {
+        animation: rotation-unique 1.5s ease-out forwards;
+    }
+
+    @keyframes rotation-unique {
+        0% { transform: rotate(-180deg) translate(50%, -50%); opacity: 0;}
+        100% { transform: rotate(0deg) translate(50%, -50%); opacity: 1;}
+    }
 
 
 
