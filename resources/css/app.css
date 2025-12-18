@@ -863,7 +863,7 @@ a.lien-a-footer {
 /* Le conteneur définit la perspective pour l'effet 3D */
     .flip-card {
     background-color: transparent;
-    width: 500px;
+    width: 50vw;
     height: fit-content;
     perspective: 1000px;
     margin: 8rem 2rem 8rem 2rem;
@@ -984,6 +984,7 @@ a.lien-a-footer {
     flex-direction: row;
     justify-content: space-evenly;
     background-color: #ffbf00;
+    padding: 1.5rem 0 3rem 0;
 }
 
 .style-container {
@@ -1127,6 +1128,7 @@ a.lien-a-footer {
 
     #text-header {
     text-align: center;
+    width: 45%;
     }
 
     .header {
@@ -1213,6 +1215,38 @@ a.lien-a-footer {
 
     .navbar a.lien-a {
         font-size: 1.5rem;
+    }
+
+
+
+    /* style Prés */
+    .pres {
+        flex-direction: column-reverse;
+    }
+
+    #pres-container>img {
+        right: 15%;
+    }
+
+    #pres-container {
+        width: 95%;
+    }
+
+    .style-container img {
+        display: none;
+    }
+    .style-container div {
+        flex-basis: 100%;
+    }
+
+    .podcast h1 {
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .podcast .titre {
+        margin-bottom: 0;
+        padding: 0;
     }
 } 
 

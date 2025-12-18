@@ -35,6 +35,13 @@ C’est une musique qui se caractérise par une certaine douceur, une voix feutr
             <p>Un style "parlé-chanté", doux, sans vibrato excessif, presque chuchoté à l'oreille.</p>
         </div>
     </div>
+        <div class="style-container apparitionG">
+        <img src="{{ Vite::asset('resources/images/harmonie.png') }}" alt="L'Harmonie">
+        <div>
+            <h1 class="S-titre">L'Harmonie</h1>
+            <p>Très riche, utilisant des accords de septième, neuvième et treizième, typiques du Jazz.</p>
+        </div>
+    </div>
     <div class="style-container apparitionG">
         <img src="{{ Vite::asset('resources/images/Chant.png') }}" alt="Guitare">
         <div>
@@ -42,13 +49,7 @@ C’est une musique qui se caractérise par une certaine douceur, une voix feutr
             <p>La "batida" créée par João Gilberto : une main droite qui alterne les basses et les accords syncopés.</p>
         </div>
     </div>
-    <div class="style-container apparitionG">
-        <img src="{{ Vite::asset('resources/images/harmonie.png') }}" alt="L'Harmonie">
-        <div>
-            <h1 class="S-titre">L'Harmonie</h1>
-            <p>Très riche, utilisant des accords de septième, neuvième et treizième, typiques du Jazz.</p>
-        </div>
-    </div>
+
 
 </section>
     <section class="podcast">
