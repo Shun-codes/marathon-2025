@@ -34,7 +34,8 @@
     <h1>{{ $article->titre }}</h1>
     <p><strong>Auteur :</strong> {{ $article->editeur->name }}</p>
     <p><strong>Résumé :</strong> {{ $article->resume }}</p>
-    <img src="{{ $article->image }}" alt="{{ $article->titre }}" style="max-width:300px;">
+        <p><strong>Texte :</strong> {{ $article->texte }}</p>
+    <img src="{{ asset(path: $article-> image) }}" alt="{{ $article->titre }}" style="max-width:300px;">
     <audio controls src="{{ $article->media }}"></audio>
 
     <p><strong>Rythme :</strong> {{ $article->rythme->texte }}</p>

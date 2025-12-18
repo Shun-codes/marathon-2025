@@ -9,7 +9,7 @@
     </div>
 
     <h2>{{ $article->titre }}</h2>
-    <img src="{{ $article->image }}" alt="{{ $article->titre }}" style="max-width:200px;">
+    <img src="{{ asset(path: $article-> image) }}" alt="{{ $article->titre }}" style="max-width:200px;">
     <p class="carte-resume">{{ $article->resume }}</p>
 
     <p>
