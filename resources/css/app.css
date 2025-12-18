@@ -272,6 +272,11 @@ iframe {
     align-items: center;
 }
 
+.nav-authentication{
+    display: flex;
+    gap: 1rem;
+}
+
 .bx {
     font-size: 1.5rem;
 }

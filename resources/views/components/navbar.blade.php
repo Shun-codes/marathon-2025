@@ -10,7 +10,7 @@
         <a href="{{ route('presentation') }}"class="lien-a">Présentation</a>
         <a href="{{ route('contact') }}"class="lien-a">Contact</a>
     </div>
-    <div>
+    <div class="nav-authentication">
         @auth
         <a href="{{route("profil.show")}}" class="lien-a"> 
             {{Auth::user()->name}}
@@ -39,4 +39,5 @@
             
     </button>
 
+</nav>
 </nav>
