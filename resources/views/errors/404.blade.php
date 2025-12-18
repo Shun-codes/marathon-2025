@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>404</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<x-layout.app :title="'Page Introuvable'">
 
-    @vite(["resources/css/normalize.css", 'resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
-<main>
-    <div style="font-size: larger;">Error 404 - SVP, Stylisez moi !!</div>
-</main>
+    <style>
+        footer.footer-section{
+            margin-top: 0;
+            border-top : 1px solid #777777a8;
+        }
+    
+    </style>
 
-</body>
-</html>
+    <div class="bg-sun"></div>
+
+    <div class="error-container">
+        
+        <img src="{{ Vite::asset('resources/images/icon_404.png') }}" alt="Logo O Sol Sound 404" class="error-logo">
+
+        <h2 class="error-message">OUPS.. le rythme s’est arrété là..</h2>
+
+        <a href="{{ route('home') }}" class="btn-home-404">
+            Retour à l'accueil
+        </a>
+
+    </div>
+
+</x-layout.app>
