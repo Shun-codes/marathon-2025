@@ -80,6 +80,18 @@ p {
     text-transform: capitalize;
 }
 
+.S-titre {
+    text-align: center;
+    color: #006D2C;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: "eight-condensed", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    text-transform: capitalize;
+}
+
+
 
 .header {
     background-color: #006D2C;
@@ -249,6 +261,7 @@ footer.footer-section{
     color: #333;
     margin: 0 15px;
     font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
 .logo-navbar2 {
@@ -412,7 +425,11 @@ a.lien-a-footer {
     
 }
 
-.carte-auteur a{
+.footer-copyright {
+    font-size: 0.8rem;
+}
+
+.carte-auteur a, .carte-auteur strong {
     text-decoration: none;
     color: #006D2C;
     background-color: #ffbf00;
@@ -483,6 +500,238 @@ a.lien-a-footer {
     height: 50px;
 }
 /* Fin Burger */
+
+
+/* Détail Articles */
+.detail-article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows : 30rem 1fr;
+}
+
+.detail-article #commentaires {
+    grid-area: 2 / 1 / 2 / 4;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.detail-article #commentaires h3 {
+        text-align: start;
+}
+
+#article-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.image-container div{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.image-container div p{
+    margin: 1rem;
+}
+.image-container {
+    position: relative;
+}
+
+.border-b {
+    width: 100%;
+    flex-basis: 33%;
+
+}
+
+#avis-container {
+    display: flex;
+    flex-direction: row;
+        flex-wrap: wrap;
+}
+
+#commentaire-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#commentaire-form textarea{
+    border: solid #006D2C;
+    height: 20px;
+    width: 100%;
+    resize: none;
+    margin: 1rem 0 0 0;
+    padding: 0.5rem;
+    transition: all 0.5s;
+    
+}
+.btn2 {
+    color: #006D2C;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 0.7rem 1rem;
+    margin: 1rem;
+    border: solid #006D2C;
+}
+
+#articles-like {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 20%;
+}
+
+#articles-like button{
+        border: solid white;
+        background-color: white;
+        color: black;
+}
+
+.bx-like:before, .bx-dislike:before{
+    color: #006D2C;
+}
+/* Fin détail Articles*/ 
+
+
+/* Style page présentation */ 
+
+.pres {
+    background-color: #006D2C;
+    width: 100%;
+}
+
+#pres-container {
+    background-color: rgba(255, 255, 255, 0.288);
+    border: solid white;
+    border-radius: 2rem;
+    position: relative;
+    height: 15rem;
+    margin-top: 5rem;
+    /*background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pres-container h1 {
+    position: absolute;
+    color: white;
+    font-size: 7rem;
+    top: 0;
+    right: 50%;
+    transform: translate(50%, -62%);
+    margin: 0;
+    width: 100%;
+}
+
+.pres img {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    z-index: -1;
+}
+
+.pres p {
+    margin: 2rem 1rem;
+    width: 80%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+}
+
+/* partie flip - card */ 
+/* Le conteneur définit la perspective pour l'effet 3D */
+    .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    perspective: 1000px; 
+    margin-top: 5rem;
+    }
+
+    /* Le wrapper qui contient les deux faces */
+    .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Indispensable pour la 3D */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    /* Rotation au survol */
+    .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+    }
+
+    /* Style commun aux deux faces */
+    .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Masque le dos pendant la rotation */
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    }
+
+    /* Style spécifique Front */
+    .flip-card-front {
+    background-color: #3498db;
+    color: white;
+    }
+
+    /* Style spécifique Back (déjà retourné par défaut) */
+    .flip-card-back {
+    background-color: #2ecc71;
+    color: white;
+    transform: rotateY(180deg);
+    }
+
+
+/* Fin Style page présentation */ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Style responsive */
