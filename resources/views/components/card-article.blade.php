@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card glass">
     <div class="carte-container">
         <p class="carte-auteur">
             <a href="{{ route('profil.user', $article->user_id) }}">
@@ -12,16 +12,18 @@
     <img src="{{ asset(path: $article-> image) }}" alt="{{ $article->titre }}" style="max-width:200px;">
     <p class="carte-resume">{{ $article->resume }}</p>
 
-    <p>
+
+
+    <!-- <p>
         Statut :
         @if($article->en_ligne)
             <span>En ligne</span>
         @else
             <span>Hors ligne</span>
         @endif
-    </p>
-
-    <a href="{{ route('articles.show', $article->id) }}" class="btn btn-primary">
+    </p> -->
+    
+    <a href="{{ route('articles.show', $article->id) }}" class="btn-card">
         Voir l’article
     </a>
 
