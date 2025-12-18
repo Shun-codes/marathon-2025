@@ -51,20 +51,10 @@
             @if($article->media)
                 <div class="audio-player">
                     <p><strong class="S-titre">Audio :</strong></p>
-
-                    @if(Str::endsWith($article->media, '.mp3') || Str::contains($article->media, '.mp3'))
-                        {{-- Fichier MP3 direct ou lien HTTP avec MP3 --}}
                         <audio controls>
                             <source src="{{ $article->media }}" type="audio/mpeg">
                             Votre navigateur ne supporte pas la lecture audio.
                         </audio>
-                    @else
-                        <p>
-                            <a href="{{ $article->media }}" target="_blank">
-                                Ouvrir le média
-                            </a>
-                        </p>
-                    @endif
                 </div>
             @else
                 <p>Aucun média audio disponible pour cet article.</p>
