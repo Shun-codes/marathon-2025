@@ -76,6 +76,18 @@ p {
     text-transform: capitalize;
 }
 
+.S-titre {
+    text-align: center;
+    color: #006D2C;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: "eight-condensed", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    text-transform: capitalize;
+}
+
+
 
 .header {
     background-color: #006D2C;
@@ -412,7 +424,7 @@ a.lien-a-footer {
     font-size: 0.8rem;
 }
 
-.carte-auteur a{
+.carte-auteur a, .carte-auteur strong {
     text-decoration: none;
     color: #006D2C;
     background-color: #ffbf00;
@@ -470,6 +482,110 @@ a.lien-a-footer {
 }
 /* Fin Burger */
 
+
+/* Détail Articles */
+.detail-article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows : 30rem 1fr;
+}
+
+.detail-article #commentaires {
+    grid-area: 2 / 1 / 2 / 4;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.detail-article #commentaires h3 {
+        text-align: start;
+}
+
+#article-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.image-container div{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.image-container div p{
+    margin: 1rem;
+}
+.image-container {
+    position: relative;
+}
+
+.border-b {
+    width: 100%;
+    flex-basis: 33%;
+
+}
+
+#avis-container {
+    display: flex;
+    flex-direction: row;
+        flex-wrap: wrap;
+}
+
+#commentaire-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#commentaire-form textarea{
+    border: solid #006D2C;
+    height: 20px;
+    width: 100%;
+    resize: none;
+    margin: 1rem 0 0 0;
+    padding: 0.5rem;
+    transition: all 0.5s;
+    
+}
+.btn2 {
+    color: #006D2C;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 0.7rem 1rem;
+    margin: 1rem;
+    border: solid #006D2C;
+}
+
+#articles-like {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 20%;
+}
+
+#articles-like button{
+        border: solid white;
+        background-color: white;
+        color: black;
+}
+
+.bx-like:before, .bx-dislike:before{
+    color: #006D2C;
+}
+
+
+/* Fin détail Articles*/ 
 
 /* Style responsive */
 @media (max-width: 1188px) {

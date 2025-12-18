@@ -6,7 +6,7 @@
 
     <div class="nav-responsive">
         <a href="{{route('home')}}" class="lien-a" id="active-page">Accueil</a>
-        <a href="{{route('articles.index')}}"class="lien-a">Article</a>
+        <a href="{{route('articles.index')}}"class="lien-a">Articles</a>
         <a href="{{ route('presentation') }}"class="lien-a">Présentation</a>
         <a href="{{ route('contact') }}"class="lien-a">Contact</a>
     </div>

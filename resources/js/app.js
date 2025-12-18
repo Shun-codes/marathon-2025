@@ -15,15 +15,7 @@ const b1 = document.querySelector('.bar:nth-child(1)');
 const b2 = document.querySelector('.bar:nth-child(2)');
 const b3 = document.querySelector('.bar:nth-child(3)');
 
-burgerBtn.addEventListener('click', () => {
-    navBar.classList.toggle('Unactive');
-    navBar.classList.toggle('active');
-    if (navBar.classList.contains('active')) {
-        afficherCroix();
-    } else {
-        afficherbar();
-    }
-    console.log(navBar);    
+let textArea = document.getElementById('commentaireTarea');
 
     function afficherbar() {
         b1.style.transform = "translateY(0px) rotate(0deg)";
@@ -37,5 +29,27 @@ burgerBtn.addEventListener('click', () => {
         b3.style.transform = "translateY(-8px) rotate(-45deg)";
         console.log('actifffff');
     }
+        function aggrandirForm() {
+        
+    }
 
-});
+burgerBtn.addEventListener('click', () => {
+    navBar.classList.toggle('Unactive');
+    navBar.classList.toggle('active');
+    if (navBar.classList.contains('active')) {
+        afficherCroix();
+    } else {
+        afficherbar();
+    } 
+    });
+
+    textArea.addEventListener('mouseenter', () => {
+        textArea.style.width = "500px";  
+        textArea.style.height = "150px"; 
+    });
+
+        textArea.addEventListener('mouseout', () => {
+        textArea.style.width = "100%";   
+        textArea.style.height = "20px"; 
+    });
+
