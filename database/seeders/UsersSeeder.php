@@ -10,19 +10,29 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class UsersSeeder extends Seeder {
+class UsersSeeder extends Seeder
+{
     /**
      * Run the database seeds.
      */
-    public function run(): void {
+    public function run(): void
+    {
         $hash = Hash::make('azerty');
 
-        User::factory([
+        User::factory()->create([
             'name' => "inrocks",
             'email' => "inrocks@gmail.com",
             'email_verified_at' => now(),
             'password' => $hash,
-        ])->create();
+            ]);
+
+        User::factory()->create([
+            'name' => "Laurine BROSS",
+            'email' => "laurine@gmail.com",
+            'email_verified_at' => now(),
+            'password' => $hash,
+            ]);
+
         for ($i = 1; $i <= 50; $i++) {
             User::factory()->create([
                 'name' => $name = 'user' . $i,
@@ -35,7 +45,7 @@ class UsersSeeder extends Seeder {
         $faker = Factory::create('fr_FR');
 
         $users = User::all();
-        foreach($users as $user) {
+        foreach ($users as $user) {
             $nb = $faker->numberBetween(2, 10);
             $userIds = User::pluck('id');
             $userIdsSelected = $faker->randomElements($userIds, $nb);

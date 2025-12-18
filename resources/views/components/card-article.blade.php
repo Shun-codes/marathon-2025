@@ -7,11 +7,10 @@
         </p>
         <p class="carte-date"><small>{{ $article->created_at->format('d/m/Y') }}</small></p>
     </div>
-    <h2>{{ $article->titre }}</h2>
-        <img src="{{ $article->image }}" alt="{{ $article->titre }}" style="max-width:200px;">
-    <p class="carte-resume">{{ $article->resume }}</p>
 
-    
+    <h2>{{ $article->titre }}</h2>
+    <img src="{{ asset(path: $article-> image) }}" alt="{{ $article->titre }}" style="max-width:200px;">
+    <p class="carte-resume">{{ $article->resume }}</p>
 
     <p>
         Statut :
@@ -27,4 +26,12 @@
     </a>
 
     <x-actif-button :article="$article" />
+
+    @auth
+        @if(auth()->id() === $article->user_id)
+            <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-warning">
+                Modifier
+            </a>
+        @endif
+    @endauth
 </div>

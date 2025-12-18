@@ -1,12 +1,18 @@
-<div>
-    <form action="{{ route('articles.like', $article) }}" method="POST">
+<div id="articles-like">
+    
+        <form action="{{ route('articles.like', $article) }}" method="POST">
+            @csrf
+            <button type="submit">
+                <i class='bx  bx-like' style='color:#ffffff'></i> {{ $article->likes()->wherePivot('nature', true)->count() }}
+            </button>
+        </form>
+    
+
+    <form action="{{ route('articles.dislike', $article) }}" method="POST">
         @csrf
-        @if($article->activeLikes->contains(auth()->user()))
-            <button type="submit" class="btn btn-danger">Je n'aime plus</button>
-        @else
-            <button type="submit" class="btn btn-primary">J’aime</button>
-        @endif
+        <button type="submit">
+            <i class='bx  bx-dislike' style='color:#ffffff'></i>  {{ $article->likes()->wherePivot('nature', false)->count() }}
+        </button>
     </form>
 
-    <p>{{ $article->activeLikes()->count() }}</p>
 </div>
