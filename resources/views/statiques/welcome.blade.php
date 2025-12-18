@@ -19,8 +19,8 @@
         
     </section>
 
-    <section class="container">
-        <h1 class="titreE apparition-top-origin">Les derniers Articles</h1>
+    <section class="container-article">
+        <h1 class="btn-card-h1">Les derniers Articles</h1>
 
         <div class="articles apparition-top-origin">
             @foreach($articles as $article)
@@ -29,7 +29,7 @@
             <h1 class="Back-title">ARTICLES</h1>
         </div>
 
-        <a class="btn" href="{{route('articles.index')}}">Explorer les Articles</a>
+        <a class="btn-card-off" href="{{route('articles.index')}}">Explorer les Articles</a>
     </section>
 
 </x-layout.app>

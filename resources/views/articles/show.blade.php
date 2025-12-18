@@ -1,7 +1,11 @@
 <x-layout.app :title="$article->titre">
     <section class="container detail-article">
+
         @if(Auth::check() && Auth::id() === $article->user_id)
             <div x-data="{ open: false }">
+                <a href="{{ route('articles.edit', $article) }}">
+                    Modifier l'article
+                </a>    
                 <!-- Bouton qui ouvre la confirmation -->
                 <button @click="open = true" class="bg-red-600 text-white px-3 py-1 rounded">
                     Supprimer l’article
@@ -33,21 +37,14 @@
             </div>
         @endif
 
-        <div class="image-container">
-            <img src="{{ asset(path: $article->image) }}" alt="{{ $article->titre }}" style="max-width:300px;">
-            <div>
-                <p class="carte-auteur"><strong>{{ $article->editeur->name }}</strong></p>
-                <p class="carte-auteur"><strong>{{ $article->nb_vues }} vues</strong></p>
-            </div>
-        </div>
 
-        <div id="article-infos">
-            <h1 class="titre">{{ $article->titre }}</h1>
-            <p><strong class="S-titre">Résumé :</strong> {{ $article->resume }}</p>
-            <p><strong class="S-titre">Texte :</strong> {{ $article->texte }}</p>
-            <p><strong class="S-titre">Rythme :</strong> {{ $article->rythme->texte }}</p>
-            <p><strong class="S-titre">Accessibilité :</strong> {{ $article->accessibilite->texte }}</p>
-            <p><strong class="S-titre">Conclusion :</strong> {{ $article->conclusion->texte }}</p>
+    <div class="pres-article">
+
+        <div id="article-img">
+            <div class="image-container">
+                <img src="{{ asset(path: $article->image) }}" alt="{{ $article->titre }}" style="max-width:300px;">
+            </div>
+
             @if($article->media)
                 <div class="audio-player">
                     <p><strong class="S-titre">Audio :</strong></p>
@@ -65,20 +62,47 @@
             @else
                 <p><a href="{{ route('login') }}">Connectez-vous</a> pour liker cet article.</p>
             @endif
+
         </div>
-        <div id="commentaires">
-            <h3 class="titre">Commentaires</h3>
-            <div id="avis-container">
-                @forelse($article->avis as $avis)
-                    <x-commentaire :avis="$avis"/>
-                @empty
-                    <p>Aucun commentaire pour le moment.</p>
-                @endforelse
+
+        <div id="article-infos">
+
+            <div id="auteur-article">
+                <p class="carte-auteur"><strong><a href="{{ route('profil.user', $article->user_id) }}">
+                {{ $article->editeur->name }}
+            <</strong></p>
+                <p class="carte-auteur"><strong>{{ $article->nb_vues }} vues</strong></p>
             </div>
 
+            <h1 class="titre">{{ $article->titre }}</h1>
 
-            <x-commentaire-form :article="$article"/>
+            <div id="detail-article">
+                <p><strong class="S-titre">Résumé :</strong> {{ $article->resume }}</p>
+                <p><strong class="S-titre">Texte :</strong> {{ $article->texte }}</p>
+                <p><strong class="S-titre">Rythme :</strong> {{ $article->rythme->texte }}</p>
+                <p><strong class="S-titre">Accessibilité :</strong> {{ $article->accessibilite->texte }}</p>
+                <p><strong class="S-titre">Conclusion :</strong> {{ $article->conclusion->texte }}</p>
+            </div>
+
         </div>
-        <p><strong>Nombre de vues :</strong> {{ $article->nb_vues }}</p>
+
+    </div>
+
+    <div id="commentaires">
+        <h2 class="titre">Commentaires</h3>
+
+        <div id="avis-container">
+            @forelse($article->avis as $avis)
+                <x-commentaire :avis="$avis"/>
+            @empty
+                <p>Aucun commentaire pour le moment.</p>
+            @endforelse
+        </div>
+
+        <x-commentaire-form :article="$article"/>
+    </div>
+
+
+
     </section>
 </x-layout.app>
