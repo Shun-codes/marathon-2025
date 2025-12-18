@@ -44,7 +44,7 @@
         <div id="article-infos">
             <h1 class="titre">{{ $article->titre }}</h1>
             <p><strong class="S-titre">Résumé :</strong> {{ $article->resume }}</p>
-            <p><strong class="S-titre">Titre :</strong> {{ $article->titre }}</p>
+            <p><strong class="S-titre">Texte :</strong> {{ $article->texte }}</p>
             <p><strong class="S-titre">Rythme :</strong> {{ $article->rythme->texte }}</p>
             <p><strong class="S-titre">Accessibilité :</strong> {{ $article->accessibilite->texte }}</p>
             <p><strong class="S-titre">Conclusion :</strong> {{ $article->conclusion->texte }}</p>
